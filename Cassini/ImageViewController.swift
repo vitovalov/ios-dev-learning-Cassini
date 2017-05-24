@@ -52,12 +52,16 @@ class ImageViewController: UIViewController {
     
     @IBOutlet weak var scrollView: UIScrollView! {
         didSet {
+            
+            scrollView.delegate = self
+            scrollView.minimumZoomScale = 0.03
+            scrollView.maximumZoomScale = 1.0 // twice as big; 1.0 can't be bigger
             scrollView.contentSize = imageView.frame.size // enclosing entire imageView
             scrollView.addSubview(imageView)
         }
     }
     
-    private var imageView = UIImageView()
+    fileprivate var imageView = UIImageView() // it's private to everyone in this file (allows extensions to see this var)
     
     private var image: UIImage? {
         get {
@@ -73,8 +77,13 @@ class ImageViewController: UIViewController {
     }
 }
 
-
-
+// could also do this by adding ", UIScrollViewDelegate" at the top of VC
+extension ImageViewController : UIScrollViewDelegate {
+    
+    func viewForZooming(in scrollView: UIScrollView) -> UIView? {
+        return imageView
+    }
+}
 
 
 

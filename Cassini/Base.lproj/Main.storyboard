@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="M7q-OJ-XDU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="bKR-zz-PYf">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,6 +9,60 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Cassini View Controller-->
+        <scene sceneID="uJI-Wy-8vz">
+            <objects>
+                <viewController id="nEA-s5-pge" customClass="CassiniViewController" customModule="Cassini" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="JET-Bf-XPU"/>
+                        <viewControllerLayoutGuide type="bottom" id="xap-dN-E0d"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="3hR-YM-3BR">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="RGL-Pn-3z9">
+                                <rect key="frame" x="123" y="223" width="128" height="220"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHB-k8-P9B">
+                                        <rect key="frame" x="0.0" y="0.0" width="128" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Earth"/>
+                                        <connections>
+                                            <segue destination="M7q-OJ-XDU" kind="showDetail" identifier="Earth" id="RO8-i1-ehr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7JN-lS-sjT">
+                                        <rect key="frame" x="0.0" y="80" width="128" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Cassini"/>
+                                        <connections>
+                                            <segue destination="M7q-OJ-XDU" kind="showDetail" identifier="Cassini" id="fhs-7Z-KPI"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUs-6o-kzq">
+                                        <rect key="frame" x="0.0" y="160" width="128" height="60"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <state key="normal" title="Saturn"/>
+                                        <connections>
+                                            <segue destination="M7q-OJ-XDU" kind="showDetail" identifier="Saturn" id="0vW-W4-Pmm"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="RGL-Pn-3z9" firstAttribute="centerX" secondItem="3hR-YM-3BR" secondAttribute="centerX" id="Udf-Gf-AL2"/>
+                            <constraint firstItem="RGL-Pn-3z9" firstAttribute="centerY" secondItem="3hR-YM-3BR" secondAttribute="centerY" id="YNj-pi-X8y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="PaX-ze-LQn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UrW-d3-dDH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-535.20000000000005" y="-256.82158920539734"/>
+        </scene>
         <!--Image View Controller-->
         <scene sceneID="KXC-fV-Rae">
             <objects>
@@ -39,7 +93,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rtg-tG-Kk9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-687.20000000000005" y="-275.71214392803603"/>
+            <point key="canvasLocation" x="-1417" y="523"/>
+        </scene>
+        <!--Split View Controller-->
+        <scene sceneID="uXk-az-8gb">
+            <objects>
+                <splitViewController id="bKR-zz-PYf" sceneMemberID="viewController">
+                    <connections>
+                        <segue destination="GMk-dC-7zM" kind="relationship" relationship="masterViewController" id="J6X-Wj-tqR"/>
+                        <segue destination="M7q-OJ-XDU" kind="relationship" relationship="detailViewController" id="OMe-fJ-dJB"/>
+                    </connections>
+                </splitViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bbd-yH-Mxq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2511" y="-258"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Fn9-5s-R2V">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GMk-dC-7zM" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="QTo-uA-E3q">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="nEA-s5-pge" kind="relationship" relationship="rootViewController" id="8TN-J3-Htq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kDR-A0-I3A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1474.4000000000001" y="-256.82158920539734"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="OMe-fJ-dJB"/>
+    </inferredMetricsTieBreakers>
 </document>

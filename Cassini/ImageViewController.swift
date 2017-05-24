@@ -11,6 +11,9 @@ import UIKit
 /// VC that shows an image
 class ImageViewController: UIViewController {
 
+    
+    // MARK: Model
+    
     var imageURL: URL? {
         didSet {
             image = nil
@@ -30,14 +33,14 @@ class ImageViewController: UIViewController {
             }
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-//        view.addSubview(imageView)
-        // this will cause immediate load from internet to the view and if this VC is reused in tabBar, would be done asap views loaded, but user haven't even seen them yet. All tabs would load the image from internet. BAD
-        // We want to load this image only when THIS VC appears
-        imageURL = DemoURL.stanford
-    }
+//    
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+////        view.addSubview(imageView)
+//        // this will cause immediate load from internet to the view and if this VC is reused in tabBar, would be done asap views loaded, but user haven't even seen them yet. All tabs would load the image from internet. BAD
+//        // We want to load this image only when THIS VC appears
+//        imageURL = DemoURL.stanford
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

@@ -14,7 +14,11 @@ class ImageViewController: UIViewController {
     var imageURL: URL? {
         didSet {
             image = nil
-            fetchImage() // since it might be internet image
+            // if I'm not on screen already.
+            // so if I'm already on screen, fetch the image here
+            if view.window != nil {
+                fetchImage() // since it might be internet image
+            }
         }
     }
     
@@ -30,7 +34,20 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(imageView)
+        // this will cause immediate load from internet to the view and if this VC is reused in tabBar, would be done asap views loaded, but user haven't even seen them yet. All tabs would load the image from internet. BAD
+        // We want to load this image only when THIS VC appears
         imageURL = DemoURL.stanford
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // so if I don't have an image yet, go fetch it.
+        // delaying the fetch and ensuring that
+        if image == nil {
+            fetchImage()
+        }
+        
     }
     
     private var imageView = UIImageView()

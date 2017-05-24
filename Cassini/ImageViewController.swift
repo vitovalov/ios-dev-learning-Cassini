@@ -33,7 +33,7 @@ class ImageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addSubview(imageView)
+//        view.addSubview(imageView)
         // this will cause immediate load from internet to the view and if this VC is reused in tabBar, would be done asap views loaded, but user haven't even seen them yet. All tabs would load the image from internet. BAD
         // We want to load this image only when THIS VC appears
         imageURL = DemoURL.stanford
@@ -50,6 +50,13 @@ class ImageViewController: UIViewController {
         
     }
     
+    @IBOutlet weak var scrollView: UIScrollView! {
+        didSet {
+            scrollView.contentSize = imageView.frame.size // enclosing entire imageView
+            scrollView.addSubview(imageView)
+        }
+    }
+    
     private var imageView = UIImageView()
     
     private var image: UIImage? {
@@ -60,6 +67,8 @@ class ImageViewController: UIViewController {
         set {
             imageView.image = newValue
             imageView.sizeToFit()//sizes its frame to whatever it has inside to match it
+            // ? optional chaining to avoid crashing when imageURL gots setup from external thing via prepare segue
+            scrollView?.contentSize = imageView.frame.size
         }
     }
 }

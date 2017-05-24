@@ -12,6 +12,7 @@
 		5FDD0B531ED59B270015C43D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5FDD0B521ED59B270015C43D /* Assets.xcassets */; };
 		5FDD0B561ED59B270015C43D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FDD0B541ED59B270015C43D /* LaunchScreen.storyboard */; };
 		5FDD0B5F1ED59BC40015C43D /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD0B5E1ED59BC40015C43D /* ImageViewController.swift */; };
+		5FDD0B611ED59E8B0015C43D /* DemoURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDD0B601ED59E8B0015C43D /* DemoURL.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		5FDD0B551ED59B270015C43D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5FDD0B571ED59B270015C43D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FDD0B5E1ED59BC40015C43D /* ImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		5FDD0B601ED59E8B0015C43D /* DemoURL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoURL.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,6 +59,7 @@
 				5FDD0B5D1ED59B610015C43D /* Supporting Files */,
 				5FDD0B4F1ED59B270015C43D /* Main.storyboard */,
 				5FDD0B5E1ED59BC40015C43D /* ImageViewController.swift */,
+				5FDD0B601ED59E8B0015C43D /* DemoURL.swift */,
 				5FDD0B571ED59B270015C43D /* Info.plist */,
 			);
 			path = Cassini;
@@ -147,6 +150,7 @@
 			files = (
 				5FDD0B5F1ED59BC40015C43D /* ImageViewController.swift in Sources */,
 				5FDD0B4C1ED59B270015C43D /* AppDelegate.swift in Sources */,
+				5FDD0B611ED59E8B0015C43D /* DemoURL.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

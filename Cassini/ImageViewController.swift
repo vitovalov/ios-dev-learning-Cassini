@@ -25,12 +25,26 @@ class ImageViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var spinner: UIActivityIndicatorView!
+    
+    
     private func fetchImage() {
         if let url = imageURL {
-            let urlContents = try? Data(contentsOf: url)
-            if let imageData = urlContents {
-                image = UIImage(data: imageData)
+            // now fetch happens blocking this thead
+//            let urlContents = try? Data(contentsOf: url)
+            spinner.startAnimating()
+            DispatchQueue.global(qos: .userInitiated).async { [weak self] in // this will make this self an optional version of itself only INSIDE this CLOSURE
+                
+                let urlContents = try? Data(contentsOf: url)
+                if let imageData = urlContents, url == self?.imageURL { // second part of if is to check that multiple clicks to fetchImage and first returns when nobody is waiting for him
+                    DispatchQueue.main.async {
+                        self?.image = UIImage(data: imageData)
+                    }
+                    
+                }
+                // now this is not cancellable
             }
+            
         }
     }
 //    
@@ -76,6 +90,9 @@ class ImageViewController: UIViewController {
             imageView.sizeToFit()//sizes its frame to whatever it has inside to match it
             // ? optional chaining to avoid crashing when imageURL gots setup from external thing via prepare segue
             scrollView?.contentSize = imageView.frame.size
+            
+//            spinner.stopAnimating() this could crash because all this set{} can be started during prepare phase of VC and the views are not set in that moment
+            spinner?.stopAnimating()
         }
     }
 }
